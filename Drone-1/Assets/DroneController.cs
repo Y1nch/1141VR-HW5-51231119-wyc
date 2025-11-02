@@ -10,7 +10,7 @@ public class DroneController : MonoBehaviour
     public float tiltSmooth = 2f;        // 傾斜平滑速度
 
     [Header("Physics")]
-    public float hoverForce = 9.81f;     // 懸浮力（抵銷重力）
+    public float hoverForce = 12f;     // 懸浮力（抵銷重力）
     public float stability = 2f;         // 穩定回正速度
 
     [Header("Audio")]
@@ -24,7 +24,7 @@ public class DroneController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
-        rb.linearDamping = 1.5f;
+        rb.linearDamping = 2f;
         rb.angularDamping = 5f;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; // ❗ 防翻倒
 
