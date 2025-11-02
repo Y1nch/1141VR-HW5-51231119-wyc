@@ -217,6 +217,7 @@ Transform:
   - {fileID: 1918065839}
   - {fileID: 110562991}
   - {fileID: 1801022941}
+  - {fileID: 2021696058}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &62967197
@@ -247,7 +248,7 @@ Transform:
   m_GameObject: {fileID: 62967197}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17, y: 0.59, z: -58.4}
+  m_LocalPosition: {x: -17, y: 0.59, z: -40.1}
   m_LocalScale: {x: 123.2, y: 6.66, z: 10.163813}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -747,17 +748,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601323444}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9313affcd7bb1645b4f70f6e8e40ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroneController
   moveSpeed: 8
   ascendSpeed: 5
-  tiltAmount: 15
+  tiltAmount: 10
   tiltSmooth: 2
-  hoverForce: 9.81
+  hoverForce: 12
   stability: 2
+  hoverHeight: 2
+  hoverTolerance: 0.1
   flightAudioSource: {fileID: 0}
 --- !u!65 &601323446
 BoxCollider:
@@ -774,12 +777,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 9, y: 2, z: 6.94}
-  m_Center: {x: 0, y: 0.8, z: -0.4}
+  m_Center: {x: 0, y: 0.8, z: 0.4}
 --- !u!54 &601323447
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -850,8 +853,8 @@ Transform:
   m_GameObject: {fileID: 650739012}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.4, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 43.53, z: 1}
+  m_LocalPosition: {x: -78, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 43.53, z: 2.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2021696058}
@@ -887,7 +890,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.9, y: 1, z: 55.31}
+  m_Size: {x: 9.9, y: 1, z: 55.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &663748487
 GameObject:
@@ -916,8 +919,8 @@ Transform:
   m_GameObject: {fileID: 663748487}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70679176, z: -0, w: 0.7074217}
-  m_LocalPosition: {x: -22.5, y: 0, z: 23.7}
-  m_LocalScale: {x: 1, y: 43.53, z: 1}
+  m_LocalPosition: {x: -22.5, y: 0, z: 60.2}
+  m_LocalScale: {x: 1.03, y: 43.53, z: 3.39}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2021696058}
@@ -1051,6 +1054,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 5c2d2662110677a4d9aa98b4cf1f9ea0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 720477927}
+    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 5c2d2662110677a4d9aa98b4cf1f9ea0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 720477931}
   m_SourcePrefab: {fileID: 100100000, guid: 5c2d2662110677a4d9aa98b4cf1f9ea0, type: 3}
 --- !u!1 &720477923 stripped
 GameObject:
@@ -1108,8 +1114,29 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 80
+  m_CollisionDetection: 1
+--- !u!114 &720477931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720477923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9313affcd7bb1645b4f70f6e8e40ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroneController
+  moveSpeed: 8
+  ascendSpeed: 5
+  tiltAmount: 10
+  tiltSmooth: 2
+  hoverForce: 12
+  stability: 2
+  hoverHeight: 2
+  hoverTolerance: 0.1
+  flightAudioSource: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,8 +1213,8 @@ Transform:
   m_GameObject: {fileID: 1506164518}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70679176, z: -0, w: 0.7074217}
-  m_LocalPosition: {x: -22.5, y: 0, z: -22.8}
-  m_LocalScale: {x: 1, y: 43.53, z: 1}
+  m_LocalPosition: {x: -22.5, y: 0, z: -48.3}
+  m_LocalScale: {x: 1.03, y: 43.53, z: 2.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2021696058}
@@ -1252,7 +1279,7 @@ Transform:
   m_GameObject: {fileID: 1529209520}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09, y: 0, z: 0}
+  m_LocalPosition: {x: 18.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 43.53, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1289,7 +1316,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.9, y: 1, z: 55.31}
+  m_Size: {x: 10, y: 1, z: 137.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1801022940
 GameObject:
@@ -1319,7 +1346,7 @@ Transform:
   m_GameObject: {fileID: 1801022940}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70650977, z: -0, w: 0.70770335}
-  m_LocalPosition: {x: -72.3, y: 0.6, z: 5.2}
+  m_LocalPosition: {x: -57.3, y: 0.6, z: 5.2}
   m_LocalScale: {x: 123.2, y: 6.66, z: 10.163813}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1430,7 +1457,7 @@ Transform:
   m_GameObject: {fileID: 1918065838}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.9, y: 0.59, z: 71.6}
+  m_LocalPosition: {x: -19.9, y: 0.59, z: 63.9}
   m_LocalScale: {x: 123.2, y: 6.66, z: 10.163813}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1530,17 +1557,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968530989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9313affcd7bb1645b4f70f6e8e40ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroneController
   moveSpeed: 8
   ascendSpeed: 5
-  tiltAmount: 15
+  tiltAmount: 10
   tiltSmooth: 2
-  hoverForce: 9.81
+  hoverForce: 12
   stability: 2
+  hoverHeight: 2
+  hoverTolerance: 0.1
   flightAudioSource: {fileID: 0}
 --- !u!54 &1968530992
 Rigidbody:
@@ -1567,8 +1596,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 80
+  m_CollisionDetection: 1
 --- !u!1 &2002314218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,7 +1613,7 @@ GameObject:
   - component: {fileID: 2002314223}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Ground
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1762,8 +1791,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021696055}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.82, y: 4.16, z: 6.8}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.71176, y: 4.16, z: 6.80914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1771,7 +1800,7 @@ Transform:
   - {fileID: 650739013}
   - {fileID: 1506164519}
   - {fileID: 663748488}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 51269013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1783,5 +1812,4 @@ SceneRoots:
   - {fileID: 2002314222}
   - {fileID: 601323448}
   - {fileID: 51269013}
-  - {fileID: 2021696058}
   - {fileID: 50307558}
